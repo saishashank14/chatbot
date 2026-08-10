@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from django.views.decorators.csrf import csrf_exempt
 
 def get_chatbot_response(userinput):
-    api_key = "AQ.Ab8RN6LmNXBanXNvGLe_juJ81rPL0vfWNfmF3KQtwMWiA6Elsg"
+    api_key = os.getenv("GEMINI_API_KEY", "your_fallback_key")
     URL2 = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-3.5-flash:generateContent?key={api_key}"
     payload = {
         "contents": [{
